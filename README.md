@@ -72,7 +72,6 @@ export PATH=$PATH:$SPARK_HOME/bin
 Run the Content-Based recommender to suggest products based on textual similarity of product descriptions:
 
 ```
-bash
 python content_based/scripts/project2_contentbased_cosinesim_gensim.py
 ```
 
@@ -80,10 +79,77 @@ Input: Product ID (ma_san_pham).
 
 Output: List of similar products with high cosine similarity scores or Gensim similarity scores.
 
-**Example usage within the script**
+**Example usage within the script:**
 
 ```
 recommendations = recommend_products_cosine(422211997, df2)
 ```
 
+### Collaborative Filtering
 
+1. **PySpark ALS**:
+Run the ALS-based recommender to suggest products for a given customer based on their ratings:
+
+```
+python collaborative_filtering/scripts/(fixed)pj2_cf(als).py
+```
+
+Input: Customer ID (ma_khach_hang).
+
+Output: List of rated products and recommended products with estimated scores.
+
+**Example usage within the script:**
+
+```
+rated_products, recommended_products = get_rated_and_recommended_products("567", data_indexed, model, san_pham_file, khach_hang_file)
+```
+
+2. **Surprise**:
+
+Run the Surprise-based recommender to train and evaluate models (KNNBaseline, SVD, SVDpp, BaselineOnly) and recommend products:
+
+```
+python collaborative_filtering/scripts/(fixed)pj2_cf(surprise).py
+```
+
+Input: Customer ID (ma_khach_hang).
+
+Output: List of rated products and recommended products with predicted ratings.
+
+**Example usage within the script:**
+```
+recommended_products = recommend_products_for_customer(365, training_data, algo, san_pham_df, df_khach_hang)
+```
+
+## Streamlit Demo
+
+- Run the Streamlit web application to interact with the recommender system:
+
+```
+streamlit run app.py
+```
+
+Input: Product ID (ma_san_pham) or Customer ID (ma_khach_hang) via the web interface.
+
+Output: Recommended products based on Content-Based or Collaborative Filtering.
+
+Hosted Demo: Access the live demo at https://recommendation-151224.streamlit.app/.
+
+## Results
+### Content-Based Filtering
+
+- Recommends products with high textual similarity (cosine similarity or Gensim similarity scores).
+- Effective for products with detailed descriptions.
+
+Example: Recommends similar skincare products based on description keywords.
+
+<img width="554" alt="Ảnh màn hình 2025-05-16 lúc 12 49 35" src="https://github.com/user-attachments/assets/44aceb84-7800-4b31-b52f-70cfab58fb8e" />
+
+###  Collaborative Filtering:
+- ALS (PySpark): RMSE ~0.85 (varies with preprocessing).
+- Surprise: KNNBaseline (optimized) RMSE ~0.80, MAE ~0.65; other models (SVD, SVDpp, BaselineOnly) also evaluated.
+- Provides personalized recommendations based on user ratings.
+
+<img width="565" alt="Ảnh màn hình 2025-05-16 lúc 12 50 41" src="https://github.com/user-attachments/assets/2b02519d-a825-4a98-a6f9-ccb202920f7f" />
+
+Example: Suggests products for a customer based on their purchase history.
