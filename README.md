@@ -70,6 +70,20 @@ export PATH=$PATH:$SPARK_HOME/bin
 
 ### Content-Based Filtering
 Run the Content-Based recommender to suggest products based on textual similarity of product descriptions:
+
 ```
 bash
 python content_based/scripts/project2_contentbased_cosinesim_gensim.py
+```
+
+Input: Product ID (ma_san_pham).
+
+Output: List of similar products with high cosine similarity scores or Gensim similarity scores.
+
+**Example usage within the script**
+
+```
+recommendations = recommend_products_cosine(422211997, df2)
+```
+
+
