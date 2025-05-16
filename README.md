@@ -2,6 +2,8 @@
 
 This project implements a recommender system for Hasaki products, utilizing **Content-Based Filtering** (Cosine Similarity, Gensim) and **Collaborative Filtering** (PySpark ALS, Surprise) to provide personalized product recommendations based on product descriptions and customer ratings.
 
+![logo](https://github.com/user-attachments/assets/7d2a47c1-1df7-4d29-9098-f20a350b62df)
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
