@@ -1,0 +1,17 @@
+# Tệp dữ liệu lớn
+data/*.csv
+data_gui/*.csv
+data_gui/*.joblib
+
+# Tệp tạm và môi trường
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
+.env
+venv/
+
+# Tệp cá nhân hoặc hệ thống
+.Da
+.DS_Store
+*.log
+output*  # Tệp tạm của Gensim (Similarity index)
