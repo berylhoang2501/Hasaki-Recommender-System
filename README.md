@@ -141,7 +141,7 @@ Hosted Demo: Access the live demo at https://recommendation-151224.streamlit.app
 - Recommends products with high textual similarity (cosine similarity or Gensim similarity scores).
 - Effective for products with detailed descriptions.
 
-Example: Recommends similar skincare products based on description keywords.
+**Example:** Recommends similar skincare products based on description keywords.
 
 <img width="554" alt="Ảnh màn hình 2025-05-16 lúc 12 49 35" src="https://github.com/user-attachments/assets/44aceb84-7800-4b31-b52f-70cfab58fb8e" />
 
@@ -150,6 +150,7 @@ Example: Recommends similar skincare products based on description keywords.
 - Surprise: KNNBaseline (optimized) RMSE ~0.80, MAE ~0.65; other models (SVD, SVDpp, BaselineOnly) also evaluated.
 - Provides personalized recommendations based on user ratings.
 
+**Example:** Suggests products for a customer based on their purchase history.
+
 <img width="565" alt="Ảnh màn hình 2025-05-16 lúc 12 50 41" src="https://github.com/user-attachments/assets/2b02519d-a825-4a98-a6f9-ccb202920f7f" />
 
-Example: Suggests products for a customer based on their purchase history.
